@@ -14,6 +14,7 @@ void setup()
   rectMode(CENTER);
   textSize(40);
   textAlign(CENTER);
+  imageMode(CENTER);
 }
 
 //Run continuously
@@ -22,9 +23,10 @@ void draw()
   background(0);
   fill(68);
   text("Why So Serious?!", 200, 65);
-  image(joker, 500, 500);
+  image(joker, 600, 400, 200, 200);
   
-  //Change color to Red
+  ///////Change color to Red
+  
   if(mouseX >= width/2){
    fill(255,0,0); 
   }
@@ -33,7 +35,8 @@ void draw()
     rect(width/2, height/2, 300, 300);
   }
   
-  // Change color to Green
+  //////// Change color to Green
+  
   else{
    fill(0,255,0); 
   }
