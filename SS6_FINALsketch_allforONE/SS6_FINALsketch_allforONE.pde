@@ -63,30 +63,29 @@ void draw()
  }
  
  ellipse(i, j, 50, 50);
- 
+ car(x + 100, y+100);
 }
 
-void car()
+void car(int x, int y)
 {
-  background(255);
+  
  //Wheel of Car
- fill(wheel);
-  ellipse(100,500,100,100);
-  //Wheel2 of car
-  fill(wheel2);
-  ellipse(300, 500, 100, 100);
+ fill(240);
+  ellipse(x+100,y+500,100,100);
+  //Wheel2 of  car
+  fill(random(100));
+  ellipse(x + 300, y +500, 100, 100);
   
   //Body of car
   fill(100);
-  rect(75, 350, 300, 100);
-  fill(0);
-  rect(125,300, 125, 75);
-  
+  rect(x+ 75, y+350, 300, 100);
+  fill(random(255), 0, 55);
+  rect(x+125,y+300, 125, 75);
+  /*
   for (int i = 0; i < 900; i++) {
   float r = random(50);
   stroke(r*5);
-  line(50, i, 50+r, i);
+  line(0, i, 50, i);
+  */
 }
   
-  
-}
