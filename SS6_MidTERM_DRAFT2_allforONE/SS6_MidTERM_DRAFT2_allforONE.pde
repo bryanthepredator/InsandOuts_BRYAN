@@ -1,7 +1,7 @@
 /*
 Bryan Pierre Louis
 MTEC2280
-Combination Final Sketch
+Combination MidTerm Sketch
 */
 
 // Decalre Assigned Values
@@ -14,23 +14,24 @@ float jSpeed = 5;
 int wheel = 0;
 float wheel2 = 0.0;
 int carMovement = 0;
+int mode; // 1: intro screen, 2: Game, 3: game over screen
 void setup()
 {
   size(700, 700);
   background(0);
-  x = 700;
+  x = 680;
 }
 
 void draw()
-{
-  
+{ 
   //Ground
  noStroke();
- x = x- 30;
- if(x > width)
+ x = x - 30;
+ if(x < 0)
  {
-  x = 0;
+  x = 700;
  }
+ 
  // Ground Color//
  fill(random(255), random(255), 255);
  ellipse(x, 550,100, 100);
@@ -63,8 +64,10 @@ void draw()
  }
  
  ellipse(i, j, 50, 50);
- car(50,50, 25, 25);
- car(0, 10, 20, 20);
+ Figure(340, 250, 100, 60, 75, 80);
+ car(200,50, 25, 25);
+ Figure(150, 280, 100, 60, 100, 50);
+ car(20, 75, 20, 20);
 }
 
 void car(int x, int y, int size, int size2)
@@ -83,10 +86,42 @@ void car(int x, int y, int size, int size2)
   fill(random(255), 0, 55);
   rect(x+125,y+300,size+ 125, size2+75);
   /*
-  for (int i = 0; i < 900; i++) {
+  for (int i = 0; i < 500; i++) {
   float r = random(50);
-  stroke(r*5);
+  stroke(r*2);
   line(0, i, 50, i);
+  }
   */
+}
+
+void Figure(float x, int y, int diameter, int r, int g, int b)
+{
+  //fill(170, 120, 50); // Cone color
+ 
+  fill(r, g, b);
+fill(255);
+// Body
+rect(x+20, y+40, diameter/2, diameter);
+fill(200, 25, 20);
+// Head
+ellipse(x+45, y, diameter,diameter);
+
+/*
+Arms and legs
+*/
+
+//left legg 
+fill(140);
+rect(x-5, y+130, diameter/5, diameter/2); 
+
+//right leg
+rect(x+75, y+130, diameter/5, diameter/2);
+
+//left arm
+rect(x-40, y+50, diameter/2, diameter/4);
+
+//right arm
+rect(x+80, y+50, diameter/2, diameter/4);
+
 }
   
