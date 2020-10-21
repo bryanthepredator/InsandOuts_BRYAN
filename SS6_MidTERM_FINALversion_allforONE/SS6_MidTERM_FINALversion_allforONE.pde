@@ -2,6 +2,7 @@
 Bryan Pierre Louis
 MTEC2280
 Combination MidTerm Sketch
+Rainbow Racewayyy
 */
 
 // Decalre Assigned Values
@@ -32,16 +33,16 @@ void draw()
   x = 700;
  }
  
- // Ground Color//
+ // Ground/Road Color//
  fill(random(255), random(255), 255);
  ellipse(x, 550,100, 100);
   fill(random(255), random(255),random( 255));
  ellipse(x, 625, 100, 100);
   fill((255), random(255),random (255));
  ellipse(x, 700, 100, 100);
- // Ground Color//
  
- // Bouncing Ball//
+ 
+ // Bouncing Ball/ Background ROAD//
  noFill();
  stroke(1);
  fill(255);
@@ -69,6 +70,39 @@ void draw()
  Figure(150, 280, 100, 50, 180, 50);
  car(20, 75, 20, 20);
  
+ 
+ ///////Mario name TAG/////
+ PFont f = createFont("Georgia", 25);
+ String mario = "Mario";
+ fill(random(255), 0, 0);
+ 
+ textFont(f);
+ textSize(25);
+ text(mario, 350, 180);
+ 
+ ///////Luigi name TAG/////
+ PFont fav = createFont("Georgia", 25);
+ String luigi = "Luigi";
+ fill(0, random(200), 0);
+ 
+ textFont(fav);
+ textSize(25);
+ text(luigi, 160, 205);
+ 
+ /////Title of Game////
+ PFont star = createFont("Georgia", 65);
+ String starRoad = "Rainbow Road";
+ textFont(star);
+ textSize(65);
+ 
+ //text(starRoad, 155, 80);
+ float eX = 10;
+ for(int i = 0; i < starRoad.length(); i++){
+   char c = starRoad.charAt(i);
+   fill(random(255), random(255), random(255));
+   text(c ,eX, 100);
+   eX = eX + textWidth(c);
+ }
 }
 
 void car(int x, int y, int size, int size2)
@@ -98,11 +132,12 @@ void car(int x, int y, int size, int size2)
 void Figure(float x, int y, int diameter, int r, int g, int b)
 {
   //fill(170, 120, 50); // Cone color
- fill(r, g, b);
+ 
 fill(255);
 // Body
 rect(x+20, y+40, diameter/2, diameter);
 fill(200, 25, 20);
+fill(r, g, b);
 // Head
 ellipse(x+45, y, diameter,diameter);
 
