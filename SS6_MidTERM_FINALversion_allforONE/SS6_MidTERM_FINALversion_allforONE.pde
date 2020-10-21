@@ -15,12 +15,14 @@ float jSpeed = 5;
 int wheel = 0;
 float wheel2 = 0.0;
 int carMovement = 0;
-int mode; // 1: intro screen, 2: Game, 3: game over screen
+int mode; // 
+//PImage DK;
 void setup()
 {
   size(700, 700);
   background(0);
   x = 680;
+ // DK = loadImage("DK_MarioKart.jpg");
 }
 
 void draw()
@@ -103,6 +105,8 @@ void draw()
    text(c ,eX, 100);
    eX = eX + textWidth(c);
  }
+// image(DK,100,195, 25, 25);
+ 
 }
 
 void car(int x, int y, int size, int size2)
