@@ -15,7 +15,8 @@ float jSpeed = 5;
 int wheel = 0;
 float wheel2 = 0.0;
 int carMovement = 0;
-int mode; // 
+String gameState;
+
 //PImage DK;
 void setup()
 {
@@ -23,9 +24,48 @@ void setup()
   background(0);
   x = 680;
  // DK = loadImage("DK_MarioKart.jpg");
+ gameState = "START";
 }
 
 void draw()
+{
+  clearBackground();
+  if (gameState == "START"){
+     startGame(); 
+  }
+  else if (gameState == "PLAY")
+  {
+    playGame();
+  }
+  else if (gameState == "PLAY2")
+  {
+    playGame2();
+  }
+  
+  else if(gameState == "END"){
+     endGame(); 
+  }
+  
+}
+
+void startGame()
+{
+  textAlign(CENTER);
+  textSize(50);
+  fill(250, 0, 15);
+  text("Click Anywhere to Play!", width/2, height/2);
+  
+  textSize(25);
+  fill(25, 5, 245);
+  text("\nLets Race \n Welcome to CART Racing",width/2 ,width/2);
+  ////// look 4 click
+  
+  if (mousePressed == true){
+     gameState = "PLAY"; 
+  }
+  
+}
+void playGame()
 { 
   //Ground
  noStroke();
@@ -105,7 +145,14 @@ void draw()
    text(c ,eX, 100);
    eX = eX + textWidth(c);
  }
+ textSize(20);
+ text("Press W key to exceed to Next level", 150, 150);
 // image(DK,100,195, 25, 25);
+//Starts second part of game
+ if (key == 'w'){
+     gameState = "PLAY2"; 
+  }
+  
  
 }
 
@@ -161,6 +208,70 @@ rect(x-40, y+50, diameter/2, diameter/4);
 
 //right arm
 rect(x+80, y+50, diameter/2, diameter/4);
-
 }
+
+/// Part 2 of game Road
+void playGame2()
+{
+     background(35, 165, 190);
+   //Ground
+   fill(180);
+   stroke(7);
+ rect(0, 500, width, 200);
+  noStroke();
+  noFill();
+ x = x - 30;
+ if(x < 0)
+ {
+  x = 700;
+ }
+ //Ground/Road lines
+  fill(random(255), 180, 0);
+  rect(x, 585, 50, 2);
+  ///// The SUN //////
+  noFill();
+  fill(225, 225, 0);
+  ellipse(650,100, 300, 300);
+  
+   /////Title of Game////
+ PFont title = createFont("Georgia", 65);
+ String titleRoad = "Mario Bro's Raceway";
+ textFont(title);
+ textSize(65);
+ 
+  float ey = 10;
+ for(int i = 0; i < titleRoad.length(); i++){
+   char display = titleRoad.charAt(i);
+   fill(80, random(255), random(150));
+   text(display ,ey, 100);
+   ey = ey + textWidth(display);
+ }
+ textSize(25);
+ text("Press S to finsh Marathon", 250, 150);
+ 
+ Figure(340, 250, 100, 255,10, 0);
+ car(200,50, 25, 25);
+ Figure(150, 280, 100, 50, 180, 50);
+ car(20, 75, 20, 20);
+  if (key == 's'){
+     gameState = "END"; 
+  }
+  
+}
+
+void clearBackground(){
+  fill(255);
+  rect(0, 0, width, height);
+}
+
+void endGame()
+{
+  background(0);
+  textAlign(CENTER);
+  textSize(50);
+  fill(250, 0, 15);
+  text("Game Over! \n Nice Race!", width/2, height/2);
+  
+}
+
   
