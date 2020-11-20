@@ -1,6 +1,10 @@
 import processing.serial.*;
 Serial myPort; // creates object from Serial class
+Serial mySerial;
 int val=0; // creates variable for data coming from serial port
+String myString = null; // Variable to collect serial data
+int nl = 10;// Return in serial
+float myVal;// Float for converted ascii serial data
 
 void setup(){
 // Size of Canvas
@@ -64,5 +68,9 @@ line(525, 425, 550, 500);
   fill (0);
   //ellipse (width/2, height/2, val, val);
   //println (val); //prints to Processing console
+  /*
+  if (val > 200)
   
+  
+  */
 }
