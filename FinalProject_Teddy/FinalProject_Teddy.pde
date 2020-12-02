@@ -34,27 +34,31 @@ size(500, 600);
 
   //set up Serial communication
   printArray(Serial.list()); // prints port list to the console
-  String portName = Serial.list()[0]; //change to match your port
-   myPort = new Serial(this, portName, 9600); //initialize Serial communication at 9600 baud
+ // String portName = Serial.list()[0]; //change to match your port
+   
    
     // Add button to empty window
   cp5 = new ControlP5(this); //
   font = createFont("Ariel", 20); // custom fonts for buttons and title
    
    cp5.addButton("red") // Red is name of button
-  .setPosition(100, 50) // x and y of upperLeft corner
+  .setPosition(60, 50) // x and y of upperLeft corner
+  .setSize(100, 80)
    .setFont(font); // (Width, height)
    
    cp5.addButton("yellow") // Red is name of button
-  .setPosition(100, 150) // x and y of upperLeft corner
+  .setPosition(60, 150) // x and y of upperLeft corner
+  .setSize(100, 80)
    .setFont(font); // (Width, height) 
    
     cp5.addButton("blue") // Red is name of button
-  .setPosition(100, 250) // x and y of upperLeft corner
+  .setPosition(60, 250) // x and y of upperLeft corner
+  .setSize(100, 80)
    .setFont(font); // (Width, height)
    
    cp5.addButton("alloff") // Red is name of button
-  .setPosition(100, 350) // x and y of upperLeft corner
+  .setPosition(60, 350) // x and y of upperLeft corner
+  .setSize(100, 80)
    .setFont(font); // (Width, height)
    
 }
