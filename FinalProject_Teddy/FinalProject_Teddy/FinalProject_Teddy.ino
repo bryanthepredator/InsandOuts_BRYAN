@@ -28,16 +28,17 @@ void loop() {
 
     char val = Serial.read();
     
-    if(val == 'b'){     // if b received
-      digitalWrite(10, HIGH); // turn on blue LED
-    }
-     if(val == 'r'){     // if r received
+     if(val == 40){     // if r received
       digitalWrite(11, HIGH); // turn on red LED
     }
-    if(val == 'y'){     // if y received
+    if(val == 70){     // if y received
       digitalWrite(12, HIGH); // turn on yellow LED
     }
-    if(val == 'x'){     // if x received
+   if(val == 110){     // if b received
+      digitalWrite(10, HIGH); // turn on blue LED
+    }
+    
+    if(val == 150){     // if x received
       digitalWrite(10, LOW); // turn OFF all LEDs
       digitalWrite(11, LOW);
       digitalWrite(12, LOW);
@@ -47,21 +48,21 @@ void loop() {
    if (Serial.available()) { // If data is available to read
     amount = Serial.read(); // read it and store it in val
   }
-  if (amount < 255) { //If val is less than 255
+  if (amount < 200) { //If val is less than 255
     servo.write(amount);  //position of servo is val
     delay(15);
   }
 
-  else if (amount == 255) { //else if val is 255 do a motor sweep
+  else if (amount == 200) { //else if val is 255 do a motor sweep
 
-    // scan from 0 to 180 degrees
-    for (ways = 0; ways < 180; ways++)
+    // scan from 0 to 70 degrees
+    for (ways = 0; ways < 70; ways++)
     {
       servo.write(ways);
       delay(15);
     }
-    // scan back from 180 to 0 degrees
-    for (ways = 180; ways > 0; ways--)
+    // scan back from 70 to 0 degrees
+    for (ways = 70; ways > 0; ways--)
     {
       servo.write(ways);
       delay(20);

@@ -42,22 +42,22 @@ size(500, 600);
   font = createFont("Ariel", 20); // custom fonts for buttons and title
    
    cp5.addButton("red") // Red is name of button
-  .setPosition(60, 50) // x and y of upperLeft corner
+  .setPosition(30, 80) // x and y of upperLeft corner
   .setSize(100, 80)
    .setFont(font); // (Width, height)
    
    cp5.addButton("yellow") // Red is name of button
-  .setPosition(60, 150) // x and y of upperLeft corner
+  .setPosition(30, 175) // x and y of upperLeft corner
   .setSize(100, 80)
    .setFont(font); // (Width, height) 
    
     cp5.addButton("blue") // Red is name of button
-  .setPosition(60, 250) // x and y of upperLeft corner
+  .setPosition(30, 280) // x and y of upperLeft corner
   .setSize(100, 80)
    .setFont(font); // (Width, height)
    
    cp5.addButton("alloff") // Red is name of button
-  .setPosition(60, 350) // x and y of upperLeft corner
+  .setPosition(30, 400) // x and y of upperLeft corner
   .setSize(100, 80)
    .setFont(font); // (Width, height)
    
@@ -151,20 +151,21 @@ void draw()
   Add features to our buttons
   Press any button, send specific char over serial port
 */
-
 void red()
 {
-   myPort.write('r') ;
+   myPort.write(40) ;
 }
 void yellow()
 {
-   myPort.write('y') ;
+   myPort.write(70) ;
 }
+
 void blue()
 {
-   myPort.write('b') ;
+   myPort.write(110) ;
 }
+
 void alloff()
 {
-   myPort.write('x') ;
+   myPort.write(150) ;
 }
