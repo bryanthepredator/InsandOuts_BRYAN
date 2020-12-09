@@ -26,7 +26,7 @@ void loop() {
 
   if (Serial.available()){// id data is available to read
 
-    char val = Serial.read();
+    int val = Serial.read();
     
      if(val == 40){     // if r received
       digitalWrite(11, HIGH); // turn on red LED
@@ -43,17 +43,35 @@ void loop() {
       digitalWrite(11, LOW);
       digitalWrite(12, LOW);
     }  
+    if(val == 170){
+      servo.write(ways);  //position of servo is val
+       delay(15);
+    }
+     else if (val == 185) { //else if val is 255 do a motor sweep
+       for (ways = 0; ways < 70; ways++)
+        {
+          servo.write(ways);
+          delay(15);
+        }
+         // scan back from 70 to 0 degrees
+       for (ways = 70; ways > 0; ways--)
+        {
+         servo.write(ways);
+         delay(20);
+        }
+       amount = 0; //reset val;
+         }
   }
-
-   if (Serial.available()) { // If data is available to read
+/*
+  // if (Serial.available()) { // If data is available to read
     amount = Serial.read(); // read it and store it in val
   }
-  if (amount < 200) { //If val is less than 255
+  if (amount < 255) { //If val is less than 255
     servo.write(amount);  //position of servo is val
     delay(15);
   }
 
-  else if (amount == 200) { //else if val is 255 do a motor sweep
+  else if (amount == 255) { //else if val is 255 do a motor sweep
 
     // scan from 0 to 70 degrees
     for (ways = 0; ways < 70; ways++)
@@ -69,7 +87,7 @@ void loop() {
     }
     amount = 0; //reset val;
   }
-
+*/
   
 
 }
